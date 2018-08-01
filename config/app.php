@@ -35,7 +35,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,6 +164,7 @@ return [
         'AltThree\Emoji\EmojiServiceProvider',
         'BackupManager\Laravel\Laravel5ServiceProvider',
         'Barryvdh\Cors\ServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
         'Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider',
         'Fideloper\Proxy\TrustedProxyServiceProvider',
         'GrahamCampbell\Binput\BinputServiceProvider',
@@ -236,6 +237,7 @@ return [
 
         'Binput' => 'GrahamCampbell\Binput\Facades\Binput',
         'Str'    => 'Illuminate\Support\Str',
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
     ],
 
