@@ -1,0 +1,76 @@
+{
+    "api": {
+        "url": "http://host.docker.internal/api/v1",
+        "token": "9yMHsdioQosnyVK4iCVR",
+        "insecure": false
+    },
+    "date_format": "02/01/2006 15:04:05 MST",
+    "monitors": [
+        {
+            "name": "Meeting Service",
+            "target": "http://meeted1svc2.cs.qai.expertcity.com:8080/jmx/beans?objectName=com.citrix.meeting:name=functionalStatusMonitor,type=healthcheck",
+            "strict": false,
+            "method": "GET",
+            "component_id": 1,
+            "template": {
+                "investigating": {
+                    "subject": "{{ .Monitor.Name }} - {{ .SystemName }}",
+                    "message": "{{ .Monitor.Name }} check **failed** (server time: {{ .now }})\n\n{{ .FailReason }}"
+                },
+                "fixed": {
+                    "subject": "I HAVE BEEN FIXED"
+                }
+            },
+            "interval": 5,
+            "timeout": 5,
+            "threshold": 80,
+            "expected_status_code": 200,
+            "expected_body": "Functional=1"
+        },
+        {
+            "name": "Search Execution Service",
+            "target": "http://g2wplus-regdiscovery1-rc.avad.expertcity.com:8080/eureka/apps/SEARCHEXECUTIONSERVICE",
+            "strict": false,
+            "method": "GET",
+            "component_id": 2,
+            "template": {
+                "investigating": {
+                    "subject": "{{ .Monitor.Name }} - {{ .SystemName }}",
+                    "message": "{{ .Monitor.Name }} check **failed** (server time: {{ .now }})\n\n{{ .FailReason }}"
+                },
+                "fixed": {
+                    "subject": "I HAVE BEEN FIXED"
+                }
+            },
+            "interval": 5,
+            "timeout": 5,
+            "threshold": 80,
+            "headers": {
+                "Content-Type": "text/xml"
+            },
+            "expected_status_code": 200,
+            "expected_body": "<status>UP</status>"
+        },
+        {
+            "name": "Chat Session State Service",
+            "target": "https://g2m-ed1-earth-consul.serversdev.getgo.com/v1/health/checks/g2m-chat-session-state-service",
+            "strict": false,
+            "method": "GET",
+            "component_id": 3,
+            "template": {
+                "investigating": {
+                    "subject": "{{ .Monitor.Name }} - {{ .SystemName }}",
+                    "message": "{{ .Monitor.Name }} check **failed** (server time: {{ .now }})\n\n{{ .FailReason }}"
+                },
+                "fixed": {
+                    "subject": "I HAVE BEEN FIXED"
+                }
+            },
+            "interval": 5,
+            "timeout": 5,
+            "threshold": 80,
+            "expected_status_code": 200,
+            "expected_body": "\"Status\":\"passing\""
+        }
+    ]
+}
