@@ -110,7 +110,7 @@ class ED1RC1MonitorSeederCommand extends Command
     {
         ComponentGroup::truncate();
         Component::truncate();
-        $this->monitor_config->monitors = [];
+        //$this->monitor_config->monitors = [];
 
         $order = 1;
         foreach($this->seed_config->groups as $group){
