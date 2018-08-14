@@ -35,6 +35,7 @@
         $component->link = is_valid_url($data->accessPointUrl)?$data->accessPointUrl:"";
         $component->monitoring_url = is_valid_url($data->monitoringUrl)?$data->monitoringUrl:"";
         $component->expected_body = "Functional=1";
+        $component->headers = json_decode("{}");
     }
 
     function add_info_nucleus(&$component) {
@@ -49,7 +50,10 @@
     function add_info_panteras(&$component) {
         $component->link = "https://g2m-ed1-earth-consul.serversdev.getgo.com/ui/#/us-west-2-ed1-earth-blue/services";
         $component->monitoring_url = "https://g2m-ed1-earth-consul.serversdev.getgo.com/v1/health/checks/" . $component->description;
-        $component->expected_body = "{\"status\":\"UP\"}";
+        $component->expected_body = "\"Status\":\"passing\"";
+        $component->headers = [
+            "Content-Type"  =>  "application/json"
+        ];
     }
 
     function is_valid_url(string $url) {
