@@ -5,9 +5,6 @@
             "groups": [
                 {
                     "name": "Meeting Services",
-<<<<<<< HEAD
-                    "groups": [],
-=======
                     "groups": [
                         {
                             "name": "Subservices 1",
@@ -28,7 +25,6 @@
                             ]
                         }
                     ],
->>>>>>> 13f8364d... remove debugbar dependency
                     "components": [
                         {
                             "name": "Meeting Service",
