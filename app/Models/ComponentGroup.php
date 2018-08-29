@@ -17,7 +17,6 @@ use CachetHQ\Cachet\Models\Traits\SortableTrait;
 use CachetHQ\Cachet\Presenters\ComponentGroupPresenter;
 use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\HasPresenter;
-use DebugBar\DebugBar;
 
 class ComponentGroup extends Model implements HasPresenter
 {
